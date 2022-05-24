@@ -31,6 +31,11 @@ class Login extends Controller
         }
         return redirect('/login')->with('error', 'Wrong email or password');
     }
+    public function logout_()
+    {
+        Auth::logout();
+        return redirect('login');
+    }
 
     /**
      * Register functions
