@@ -12,7 +12,10 @@
             <ul>
                 <a href="/home">Home</a>
                 <a href="/products">Products</a>
-                <a href="/">Create Product</a>
+                <a href="/user">User</a>
+
+
+
             </ul>
         </nav>
     </div>
