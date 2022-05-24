@@ -22,13 +22,11 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [Home::class, 'index']);
 
 Route::get('/login', [Login::class, 'login']);
+Route::post('/loginUser', [Login::class, 'loginUser'])->name('loginUser');
 
 Route::get('/register', [Login::class, 'register']);
 Route::post('/registerUser', [Login::class, 'registerUser'])->name('registerUser');
 
-Route::get('/test', function () {
-    return "Hello World";
-});
 
 Route::get('/user', [Home::class, 'user']);
 

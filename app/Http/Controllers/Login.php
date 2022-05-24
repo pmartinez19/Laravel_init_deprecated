@@ -5,13 +5,37 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
+use Auth;
 
 class Login extends Controller
 {
+    /**
+     * Login functions
+     */
     public function login()
     {
         return view('login');
     }
+    public function loginUser(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        $user = User::where('email','=', $request->email)->first();
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                Auth::login($user);
+                return redirect('/home');
+            }
+        }
+        return redirect('/login')->with('error', 'Wrong email or password');
+    }
+
+    /**
+     * Register functions
+     */
+
     public function register()
     {
         return view('register');

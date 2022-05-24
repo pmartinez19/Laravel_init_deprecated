@@ -40,7 +40,7 @@
     </div>
    @endif
 
-   <form method="post" >
+   <form method="post" action="{{route('loginUser')}}" >
     @csrf
     <div class="form-group">
      <label>Enter Email</label>
