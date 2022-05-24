@@ -12,11 +12,14 @@ class Products extends Controller
         if ($id !=0) {
             Products::productDetail($id);
         } else {
-            return view('products');
+
+            $list = \DB::table('products')->where('ID','<',30)->get();
+            return view('products', array('products'=>$list));
         }
     }
     public function productDetail($id)
     {
         return view('productDetail', ['id' => $id]);
     }
+
 }

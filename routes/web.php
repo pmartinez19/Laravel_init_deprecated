@@ -29,6 +29,6 @@ Route::get('/logout', [Login::class, 'logout_']);
 Route::get('/register', [Login::class, 'register']);
 Route::post('/registerUser', [Login::class, 'registerUser'])->name('registerUser');
 
-Route::get('/products', [Products::class, 'products']);
+Route::get('/products', [Products::class, 'products'])->name('products');
 Route::get('/products/{id}', [Products::class, 'productDetail']);
 
