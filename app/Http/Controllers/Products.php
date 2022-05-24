@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class Products extends Controller
 {
-    public function products($id=0)
+    public function products($id=-1)
     {
-        if ($id !=0) {
+        if ($id !=-1) {
             Products::productDetail($id);
         } else {
 
@@ -19,7 +19,8 @@ class Products extends Controller
     }
     public function productDetail($id)
     {
-        return view('productDetail', ['id' => $id]);
+        $product = \DB::table('products')->where('ID',$id)->first();
+        return view('productDetail', $product);
     }
 
 }
