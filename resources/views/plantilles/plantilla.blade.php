@@ -4,41 +4,62 @@
 <head>
     <title>VendingMAchine</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-    .box{
-        width:600px;
-        margin:0 auto;
-        border:1px solid #ccc;
-    }
-    </style>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+
 </head>
 
 <body>
-    <div class='header'>
-        <nav>
-            <ul>
-                <a href="/home">Home</a>
-                <a href="/products">Products</a>
-                <a href="/login">Login</a>
-                <a href="/register">Register</a>
 
-                @auth
-                <a href="/logout">Logout</a>
 
-                @endauth
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand">MAchine</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div>
+            <div class="navbar-collapse inline">
+                <ul class="navbar-nav mr-3 mt-2 mt-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-item nav-link" href="/home">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/products">Products</a>
+                    </li>
+                    @if (!isset(Auth::user()->email))
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/register">Register</a>
+                    </li>
+                    @endif
+                    @auth
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="/logout">Logout</a>
+                    </li>
+                    @endauth
+                </ul>
+                <div class="text-success">
+                    @auth
+                    Welcome {{ Auth::user()->name }}
+                        @endauth
+                    @if (!isset(Auth::user()->email))
+                        Guest
+                    @endif
+                </div>
 
-                @auth
-                   <div class = "welcomeUser">
-                        Welcome {{ Auth::user()->name }}
-                   </div>
-                @endauth
-            </ul>
-        </nav>
-    </div>
+
+            </div>
+        </div>
+    </nav>
+
     <div class='content'>
         @yield('content')
     </div>
