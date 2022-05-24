@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\Login;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', [Home::class, 'index']);
 
 Route::get('/login', [Login::class, 'login']);
 
+Route::get('/register', [Login::class, 'register']);
+Route::post('/registerUser', [Login::class, 'registerUser'])->name('registerUser');
+
 Route::get('/test', function () {
     return "Hello World";
 });
@@ -39,5 +43,11 @@ Route::get('/products/{id}', [Products::class, 'productDetail']);
 Route::get('/home', [Home::class, 'home']);
 
 Route::post('login', function (){
-    return request();
+    $credentials = request(['email', 'password']);
+    if(Auth::attempt($credentials))
+    {
+        request()->session()->regenerate();
+        return redirect()->route('home');
+    }
+    return redirect('login');
 });
