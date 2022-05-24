@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', [Home::class, 'index']);
+Route::get('/home', [Home::class, 'home']);
 
 Route::get('/login', [Login::class, 'login']);
 Route::post('/loginUser', [Login::class, 'loginUser'])->name('loginUser');
@@ -28,15 +29,6 @@ Route::get('/logout', [Login::class, 'logout_']);
 Route::get('/register', [Login::class, 'register']);
 Route::post('/registerUser', [Login::class, 'registerUser'])->name('registerUser');
 
-
-Route::get('/user', [Home::class, 'user']);
-
 Route::get('/products', [Products::class, 'products']);
-
-//Route::get('/products/create', [Products::class, 'productCreate']);
-
 Route::get('/products/{id}', [Products::class, 'productDetail']);
 
-//Route::get('/products/{id}/edit', [Home::class, 'productEdit']);
-
-Route::get('/home', [Home::class, 'home']);

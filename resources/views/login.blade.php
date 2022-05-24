@@ -4,10 +4,7 @@
 <h1 >Login</h1>
 <div class="container box">
     @if(isset(Auth::user()->email))
-    <script>
-        window.location = "/home/successlogin";
-
-    </script>
+        <script>window.location="/products";</script>
     @endif
 
     @if ($message = Session::get('error'))

@@ -23,7 +23,6 @@
             <ul>
                 <a href="/home">Home</a>
                 <a href="/products">Products</a>
-                <a href="/user">User</a>
                 <a href="/login">Login</a>
                 <a href="/register">Register</a>
 
