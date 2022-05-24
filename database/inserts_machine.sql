@@ -1,1 +1,2 @@
 INSERT INTO users VALUES (NULL,"Pepe", "pepe@gmail.com", NULL,"pepe",NULL, "2022-05-24 08:07:20","2022-05-24 08:07:20");
+INSERT INTO products VALUES (NULL, "Manzana", "public/images/manzana.jpg", 1, "spain", 200, 50, 25, "{'fat': '0.3 g', 'Na': '1.8 mg', 'K': '197.8 mg', 'Sugars':{'Fructose':18.9 g, 'Complex Sugar': 4.4 g}, 'Proteins' : '0.5 g', 'Vit': ['A','C','E','B1','B3','B12']}","2022-05-24 08:07:20","2022-05-24 08:07:20");
