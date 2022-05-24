@@ -30,5 +30,7 @@ Route::get('/register', [Login::class, 'register']);
 Route::post('/registerUser', [Login::class, 'registerUser'])->name('registerUser');
 
 Route::get('/products', [Products::class, 'products'])->name('products');
-Route::get('/products/{id}', [Products::class, 'productDetail']);
+Route::get('/products/{id}', [Products::class, 'productDetail'])->name('productDetail');
+
+Route::get('/buy', [Products::class, 'buy'])->name('buy');
 

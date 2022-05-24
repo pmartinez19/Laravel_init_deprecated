@@ -20,7 +20,19 @@ class Products extends Controller
     public function productDetail($id)
     {
         $product = \DB::table('products')->where('ID',$id)->first();
-        return view('productDetail', $product);
+        return view('productDetail', array('product'=>$product));
+    }
+    public function buy($price =1)
+    
+    {
+        
+        $subtract_from_balance = \DB::table('users')->where('ID',Auth::id())->decrement('balance',$price);
+        return "<script>
+         setTimeout(function(){
+            alert('Product will drop in 5 seconds');
+            window.location.href='/products';},5000);
+            </script>";
+
     }
 
 }

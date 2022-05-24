@@ -1,4 +1,3 @@
-INSERT INTO users VALUES (NULL,"Pepe", "pepe@gmail.com", NULL,"pepe",NULL, "2022-05-24 08:07:20","2022-05-24 08:07:20");
 INSERT INTO products VALUES (NULL, "Manzana", "/images/manzana.jpg", 1, "spain", 200, 50, 25,'"nutrition-per-100g": {"energy": 218,"carbohydrate": 13.81,"sugars": 10.39,"dietary-fibre": 2.4,"fat": 0.17,"protein": 0.26,"vitamin-b1": 0.017,"vitamin-b2": 0.026,"vitamin-b3": 0.091,"vitamin-b5": 0.061}'
 ,"2022-05-24 08:07:20","2022-05-24 08:07:20");
 

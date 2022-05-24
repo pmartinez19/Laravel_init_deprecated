@@ -20,7 +20,7 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->price}}</td>
                     <td>
-                        <a href="{{route('products', $product->id)}}" class="btn btn-primary">Details</a>
+                        <a href="{{route('productDetail', $product->id)}}" class="btn btn-primary">Details</a>
                     </td>
                 </tr>
                 @endforeach
